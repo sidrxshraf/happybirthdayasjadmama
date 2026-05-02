@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>happy 27th, asjad mama</title>
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#1f2933">
 
-  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --black:#000000;
-      --dark:#1a1a1a;
-      --gray:#e5e5e5;
-      --light:#f7f7f7;
-      --white:#ffffff;
+      --black:#1f2933;
+      --dark:#273444;
+      --gray:#3e4c59;
+      --light:#323f4b;
+      --white:#2b3642;
+      --accent:#c9a96a;
+      --text:#f0f4f8;
+      --muted:#cbd2d9;
     }
 
     *{box-sizing:border-box}
@@ -26,16 +28,16 @@
     body{
       font-family:'Playfair Display SC', serif;
       background:var(--white);
-      color:var(--dark);
-      line-height:1.5; /* slightly tighter line spacing */
-      font-size:0.9rem; /* smaller base font */
+      color:var(--text);
+      line-height:1.5;
+      font-size:0.9rem;
     }
 
     header{
       position:relative;
-      padding:60px 20px 40px; /* tighter padding */
+      padding:60px 20px 40px;
       text-align:center;
-      background:linear-gradient(180deg,#ffffff 0%,#f2f2f2 100%);
+      background:linear-gradient(180deg,#2b3642 0%, #3a4755 100%);
       border-bottom:1px solid var(--gray);
       overflow:hidden;
     }
@@ -44,23 +46,23 @@
       font-family:'Pinyon Script', cursive;
       font-size:clamp(3rem,7vw,4.8rem);
       margin:0 0 12px;
-      color:var(--black);
+      color:#ffffff;
     }
 
     .subtitle{
-      opacity:.75;
-      font-size:1.3rem; /* keep subtitle larger */
+      opacity:.85;
+      font-size:1.3rem;
       letter-spacing:.6px;
+      color:var(--muted);
     }
 
-    /* FLOATING SHAPES */
     .confetti{position:absolute;inset:0;pointer-events:none}
     .shape{
       position:absolute;
       width:8px;
       height:8px;
-      background:var(--black);
-      opacity:.15;
+      background:var(--accent);
+      opacity:.3;
     }
 
     @keyframes floatDown{
@@ -69,7 +71,7 @@
     }
 
     main{
-      max-width:700px; /* narrower sections */
+      max-width:700px;
       margin:auto;
       padding:24px 16px 60px;
       font-size:0.9rem;
@@ -81,89 +83,96 @@
       border-radius:18px;
       padding:18px;
       margin:18px 0;
-      box-shadow:0 6px 14px rgba(0,0,0,.05);
+      box-shadow:0 6px 18px rgba(0,0,0,.3);
     }
 
     h2{
-      font-size:1.2rem; /* smaller headings */
+      font-size:1.2rem;
       margin-bottom:10px;
-      color:var(--black);
+      color:#ffffff;
     }
 
-    /* TICKER */
     .ticker-wrap{
       overflow:hidden;
       border:1px dashed var(--gray);
-      background:var(--white);
+      background:#2b3642;
       border-radius:14px;
       padding:10px;
     }
+
     .ticker-track{
       display:flex;
       gap:24px;
       white-space:nowrap;
       animation:tickerMove 60s linear infinite;
-      font-size:1rem; /* smaller ticker text */
+      font-size:1rem;
+      color:var(--muted);
     }
 
-    /* LETTER SECTION */
     .letter-box{
-      background:var(--white);
+      background:#2b3642;
       border:1px solid var(--gray);
       border-radius:18px;
       padding:20px;
-      font-size:0.9rem; /* smaller letter text */
+      font-size:0.9rem;
+      color:var(--muted);
     }
+
     .letter-box p{
       margin:0 0 10px;
     }
+
     .signature{
       margin-top:14px;
       font-style:italic;
-      opacity:.8;
+      opacity:.85;
     }
 
-    /* ENVELOPES */
     .envelopes{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); /* narrower envelopes */
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
       gap:10px;
     }
+
     .envelope{
       border:1px solid var(--gray);
       border-radius:16px;
       padding:14px;
-      background:var(--white);
+      background:#2b3642;
       cursor:pointer;
       position:relative;
       font-size:0.9rem;
+      color:var(--text);
     }
+
     .envelope::before{
-      content:"click here";
+      content:"▢";
       position:absolute;
       right:10px;
       top:8px;
       font-size:1rem;
       opacity:.4;
     }
+
     .letter{
       display:none;
       margin-top:10px;
       padding:10px;
       border:1px dashed var(--gray);
       border-radius:12px;
-      background:var(--light);
+      background:#323f4b;
+      color:var(--muted);
     }
 
-    /* COUNT / MILESTONE */
     .countup{
       display:flex;
       justify-content:center;
       gap:12px;
-      flex-wrap:nowrap; /* straight line */
+      flex-wrap:nowrap;
     }
+
     .tile{
-      background:var(--white);
+      background:#2b3642;
       border:1px solid var(--gray);
       border-radius:16px;
       padding:14px 18px;
@@ -171,24 +180,26 @@
       text-align:center;
       font-size:0.9rem;
     }
+
     .num{
-      font-size:1.5rem; /* smaller milestone number */
+      font-size:1.5rem;
       font-weight:700;
-      color:var(--black);
+      color:var(--accent);
     }
 
     footer{
       text-align:center;
-      opacity:.6;
+      opacity:.7;
       margin-top:36px;
-      font-size:0.75rem; /* smaller footer */
+      font-size:0.75rem;
+      color:var(--muted);
     }
   </style>
 </head>
 
 <body>
 <header>
-  <div style="max-width:600px; margin:0 auto; text-align:center;"> <!-- narrower header -->
+  <div style="max-width:600px; margin:0 auto; text-align:center;">
     <h1 class="title">Happy Birthday</h1>
     <p class="subtitle">Est. 3ʳᵈ May 1999 | Asjad Mama</p>
   </div>
@@ -197,7 +208,6 @@
 
 <main>
 
-<!-- SLIDER -->
 <section class="card">
   <div class="ticker-wrap">
     <div class="ticker-track">
@@ -206,10 +216,8 @@
   </div>
 </section>
 
-<!-- VINYL / SONG -->
 <section class="card" style="text-align:center;">
   <iframe 
-    data-testid="embed-iframe" 
     style="border-radius:12px; margin-top:12px;" 
     src="https://open.spotify.com/embed/track/3mlqYwpqk8g5CFxmaJjAKv?utm_source=generator&theme=0" 
     width="100%" 
@@ -221,12 +229,11 @@
   </iframe>
 </section>
 
-<!-- LETTER SECTION -->
 <section class="card">
   <h2>a letter for you</h2>
   <div class="letter-box">
     <p>
-  dear asjad mama, from watching harry potter and horror movies with you to learning all our life lessons from you, we have always admired you while growing up side by side. thank you for guiding and supporting us with so much sincerity and patience ever since a very young age. May Allah SWT bless you with immense barakah, grant you ease in every step of life, and reward you for being such a great mama, for all the concern and responsibility you carry so flawlessly. we are so grateful to have you.
+      dear asjad mama, from watching harry potter and horror movies with you to learning all our life lessons from you, we have always admired you while growing up side by side. thank you for guiding and supporting us with so much sincerity and patience ever since a very young age. May Allah SWT bless you with immense barakah, grant you ease in every step of life, and reward you for being such a great mama.
     </p>
     <div class="signature">— sidra, maryam, maarya & mubashshira</div>
   </div>
@@ -236,22 +243,16 @@
   <h2>open on</h2>
   <div class="envelopes">
     <div class="envelope">
-      <h3>days you feel accomplished (click here) </h3>
-      <div class="letter">
-        you’ve earned every bit of pride you feel. nothing here is accidental.
-      </div>
+      <h3>days you feel accomplished</h3>
+      <div class="letter">you’ve earned every bit of pride you feel.</div>
     </div>
     <div class="envelope">
-      <h3>days you feel exhausted (click here)</h3>
-      <div class="letter">
-        rest is not weakness. it’s maintenance for someone who carries a lot.
-      </div>
+      <h3>days you feel exhausted</h3>
+      <div class="letter">rest is not weakness.</div>
     </div>
     <div class="envelope">
-      <h3>days you underestimate yourself (click here) </h3>
-      <div class="letter">
-        look at the people who stand stronger because you were there.
-      </div>
+      <h3>days you underestimate yourself</h3>
+      <div class="letter">you matter more than you think.</div>
     </div>
   </div>
 </section>
